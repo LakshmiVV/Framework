@@ -1,0 +1,5 @@
+package wdMethods;
+
+@interface SeMethods {
+
+}
