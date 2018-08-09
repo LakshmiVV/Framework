@@ -56,32 +56,54 @@ public class CreateLead {
  	 public void clickCrmsfa(){
     	driver.findElementByLinkText("CRM/SFA").click();
      } 
-    @And("click on createlead")
-	 public void clickCreateLead(){
-   	driver.findElementByLinkText("Create Lead").click();
+    @And("click the Leads")
+ 	 public void clickLeads(){
+    	driver.findElementByLinkText("Leads").click();
+     } 
+    @And("click on Find leads button")
+	 public void clickFindLead(){
+   	driver.findElementByLinkText("Find Leads").click();
     } 
       
-    @And("Enter the companyname as (.*)")
-	 public void enterCompanyname(String cName){
-   	driver.findElementById("createLeadForm_companyName").sendKeys(cName);
-    }
+//    @And("Enter the companyname as (.*)")
+//	 public void enterCompanyname(String cName){
+//   	driver.findElementById("createLeadForm_companyName").sendKeys(cName);
+//    }
   
     @And("Enter the firstname as (.*)")
-	 public void enterFirstname(String fName){
-  	driver.findElementById("createLeadForm_firstName").sendKeys(fName);
+	 public void enterFirstname(String firstName){
+  	driver.findElementByXPath("(//input[@name='firstName'])[3]").sendKeys(firstName);
    }
-    @And("Enter the lastname as (.*)")
-	 public void enterLastname(String lName){
-  	driver.findElementById("createLeadForm_lastName").sendKeys(lName);
-  }
-    @When("click the create lead button")
-	 public void clickCreateLeadButton(){
-  	driver.findElementByClassName("smallSubmit").click();
+//    @And("Enter the lastname as (.*)")
+//	 public void enterLastname(String lName){
+//  	driver.findElementById("createLeadForm_lastName").sendKeys(lName);
+//  }
+    @And("click on findLeads button")
+	 public void clickFindLeadButton(){
+  	driver.findElementByXPath("//button[text()='Find Leads']").click();
    } 
+    @And("click the first resulting id")
+  	 public void clickFirstLeadButton(){
+    	driver.findElementByXPath("//a[text()='lakshmi'][1]").click();
+     } 
     
-    @Then("verify the created lead")
-    public void verifyCreatedLead() {
-    	System.out.println("Lead has been created");
+    @And("click on edit button")
+	 public void clickEditButton(){
+ 	driver.findElementByXPath("//a[@class='subMenuButton' and text()='Edit']").click();
+  } 
+    @And("change the Salutation as (.*)")
+	 public void enterSalutationname(String salutationName){
+ 	driver.findElementById("updateLeadForm_personalTitle").sendKeys(salutationName);
+  }
+    @When("click on update button")
+    public void clickupdateButton(){
+    	driver.findElementByXPath("//input[@type='submit' and @name='submitButton'and @value='Update']").click();
+     } 
+   
+    
+    @Then("verify the Salution")
+    public void verifysalutation() {
+    	System.out.println("Salutation has been changed");
  }
 
 
